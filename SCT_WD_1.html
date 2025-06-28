@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 60px; /* offset for fixed nav */
+    }
+
+    /* Fixed Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ccc;
+      z-index: 999;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav.scrolled {
+      background-color: #007BFF;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 15px;
+      display: block;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    nav.scrolled a {
+      color: #fff;
+    }
+
+    section {
+      height: 100vh;
+      padding: 40px;
+      background: linear-gradient(to bottom, #f0f0f0, #d3d3d3);
+    }
+
+    section:nth-child(even) {
+      background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Sections -->
+  <section id="home"><h1>Home Section</h1></section>
+  <section id="features"><h1>Features Section</h1></section>
+  <section id="about"><h1>About Section</h1></section>
+  <section id="contact"><h1>Contact Section</h1></section>
+
+  <script>
+    // Change nav style on scroll
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
